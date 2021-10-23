@@ -1,4 +1,4 @@
-package movemangement;
+package moviemangement;
 
 public class UserVO { 
 	

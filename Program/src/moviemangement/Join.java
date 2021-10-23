@@ -1,4 +1,4 @@
-package movemangement;
+package moviemangement;
 
 import java.util.ArrayList;
 import java.util.Scanner;
