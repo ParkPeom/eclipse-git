@@ -125,6 +125,13 @@ public class ReserVationMain {
 		}
 	}	
 	
+	
+	// 프로그램 종료하기
+	public void exit() {
+		System.exit(0);
+	}
+	
+	
 	// 메뉴 
 	public void showMenu() {
 		int menu = 0;
@@ -136,13 +143,15 @@ public class ReserVationMain {
 			System.out.println("3. 예매 내역 조회");
 			System.out.println("4. 예매 취소 ");
 			System.out.println("5. 회원 가입 페이지로 이동하기 ");
+			System.out.println("6. 종료 하기");
+			
 			Scanner sc = new Scanner(System.in);
 			String choice = sc.nextLine();
 			menu = Integer.parseInt(choice);
 			
 			switch(menu) {		
 			case 1:
-				reser.showSeat(seat); // 좌석보기 
+				reser.showSeat(seat);		 // 좌석보기 
 				break;
 			case 2:
 				reser.seatReserVation(seat); // 좌석예약하기
@@ -151,11 +160,17 @@ public class ReserVationMain {
 				reser.reservedConfirm(seat); // 예매내역 조회하기
 				break;
 			case 4:
-				reser.cancelSeat(seat); // 예매내역 취소하기 
+				reser.cancelSeat(seat);		 // 예매내역 취소하기 
 				break;
 			case 5:
 				Join j = new Join();
-				j.showMenu();
+				j.showMenu(); 			     // 회원 가입 페이지로 이동 
+				break;
+			case 6:
+				System.out.println("종료되었습니다.");
+				exit();
+			default :
+				System.out.println("다시 입력 하세요.");
 			}
 		} while(!(1 > menu || menu >= 5));
 	}

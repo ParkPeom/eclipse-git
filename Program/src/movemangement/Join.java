@@ -151,15 +151,14 @@ public class Join {
 			} while(true);
 			
 			do {
-				System.out.print("주민번호를 입력해주세요 ex) 940114-1xxxxxx ");
+				System.out.println(" 주민번호를 입력해주세요 ex) 940114-1xxxxxx");
 				// 주민번호 조건 true 이면 대입 
-				
 				jumin[i] = sc.nextLine();
 				if(user.setJumin(jumin[i])) {
 					user.setJumin(jumin[i]);
-						user.setSex(sex[i]);
 						break;
 					} else {
+						// 거짓이면 
 					System.out.println("다시 입력해주세요.");
 					continue;
 				}
@@ -168,12 +167,7 @@ public class Join {
 		}
 	}
 	
-	// 프로그램 종료하기
-	public void exit() {
-		System.exit(0);
-	}
-	
-	// 초기메뉴 
+	// 로그인 후 초기메뉴 
 	public void showMenu() {
 		line();
 		do {
@@ -202,6 +196,10 @@ public class Join {
 		case 3:
 			// 되돌아가기
 			reser.showMenu(); 
+			break;
+		case 4:
+			// 회원 찾기
+			searchInfo();
 			}
 		}
 	
@@ -216,7 +214,7 @@ public class Join {
 		choiceloginMenu(choice);
 	}
 	
-	// 로그아웃
+	// 로그아웃 (미완성)
 	public void loginOut() {
 		line();
 	}
@@ -258,7 +256,7 @@ public class Join {
 		}
 	}
 	
-	// 아이디 비번 정보 찾기
+	// 아이디 비번 정보 찾기 (미완성)
 	public void searchInfo() {
 		System.out.println("성함 입력 ");
 		System.out.println("주민번호 입력 ");
@@ -280,8 +278,8 @@ public class Join {
 			// 회원탈퇴
 			break;
 		case 4:
-			//아이디 비번 정보 찾기
-			searchInfo();
+			//아이디 비번 정보 바꾸기
+
 		}
 	}
 }

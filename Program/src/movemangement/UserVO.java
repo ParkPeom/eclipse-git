@@ -96,11 +96,11 @@ public class UserVO {
 		}while(!(1 <= age && age <= 100));
 	}
 	
-	// 주민번호 유효성 
 	public String getJumin() {
 		return jumin;
 	}
 
+	// 주민번호 유효성 
 	public boolean setJumin(String jumin) {
 		// 주민번호 940114 - 1 ? 2? 3? 4? 는 무조건 와야함 
 		// 1 , 3 = 남자
@@ -108,19 +108,19 @@ public class UserVO {
 		// 모두 14자리 
 		do {
 			// 주민번호 유효성 검사 
-			if((jumin.charAt(8) == 1 || jumin.charAt(8) == 3) && jumin.length() == 14 ) {
+			if((jumin.charAt(8) == 1 || jumin.charAt(8) == 3) && jumin.length() >= 14 ) {
 				this.jumin = jumin;
 				return true;
-			} else if((jumin.charAt(8) == 2 || jumin.charAt(8) == 4) && jumin.length() == 14 ) {
+			} else if((jumin.charAt(8) == 2 || jumin.charAt(8) == 4) && jumin.length() >= 14 ) {
 				this.jumin = jumin;
 				return true;
 			} else {
 				System.out.println("다시 입력해 주시오.");
 				return false;
 				}
-			}while(!(jumin.charAt(8) == 1 || jumin.charAt(8) == 3 || jumin.charAt(8) == 2 || jumin.charAt(8) == 4 ) && jumin.length() == 14);
+			} while((jumin.charAt(8) != 1 || jumin.charAt(8) != 3 || jumin.charAt(8) != 2 || jumin.charAt(8) != 4 ) && jumin.length() != 14);
 		}
-
+	
 	public String getSex() {
 		return sex;
 	}
