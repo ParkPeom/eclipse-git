@@ -107,8 +107,6 @@ public class UserVO {
 		// 2 , 4 = 여자
 		// 모두 14자리 
 		do {
-			System.out.println(jumin.length());
-			
 			// 주민번호 유효성 검사 
 			if((jumin.charAt(8) == 1 || jumin.charAt(8) == 3) && jumin.length() == 14 ) {
 				this.jumin = jumin;
@@ -118,10 +116,9 @@ public class UserVO {
 				this.jumin = jumin;
 				return true;
 			} else {
-				System.out.println("다시 입력해 주시오.");
 				return false;
 				}
-			} while(true);
+			} while(!(jumin.charAt(8) == 2 || jumin.charAt(8) == 4) && jumin.length() == 14);
 		}
 	
 	public String getGender() {

@@ -34,7 +34,6 @@ public class Join {
 	ArrayList arr;  // 컬렉션 프레임 사용 
 	UserVO user; // User
 	
-	
 	// 생성자 초기화
 	public Join() {
 		reser = new ReserVationMain();
@@ -57,7 +56,12 @@ public class Join {
 	public void loginInfo() {
 		for(int i = 0; i < id.length; i++) {
 			if(id[i] != null) {
-				System.out.println(id[i] + pwd[i] + name[i] + age[i]);
+				System.out.println("아이디 : " + id[i]
+					    + " 비밀번호 : " + pwd[i] 
+						+ " 이름 : "+ name[i] 
+						+ " 나이 : "+ age[i]
+						+ " 주민번호 :"+ jumin[i]);
+				break;
 			}
 		}
 	}
@@ -75,7 +79,7 @@ public class Join {
 				if(pwdCheck.equals(pwd[i])) {
 					System.out.println("접속되셨습니다.");
 					// 아이디 넘겨줌 
-					longAfterMenu(id[i]);
+					choiceloginMenu();
 					break;
 				} else {
 					System.out.println("비밀번호가 틀립니다.");
@@ -160,7 +164,7 @@ public class Join {
 						break;
 					} else {
 						// 거짓이면 
-					System.out.println("다시 입력해주세요.");
+					System.out.println("가입이 완료되었습니다.");
 					break;
 				}
 			} while(true);
@@ -168,7 +172,7 @@ public class Join {
 		}
 	}
 	
-	// 로그인 후 초기메뉴 
+	// 로그인 초기메뉴 
 	public void showMenu() {
 		line();
 		do {
@@ -205,18 +209,19 @@ public class Join {
 		}
 	
 	// 로그인 후 콘솔 
-	public void longAfterMenu(String id) {
+	public void longAfterMenu() {
 		line();
 		System.out.println("<< Cinema Hello >>");
 		System.out.println("1. 로그인 정보");
 		System.out.println("2. 로그 아웃");
 		System.out.println("3. 회원 탈퇴");
-		int choice = sc.nextInt();
-		choiceloginMenu(choice);
+		System.out.println("4. 뒤로 가기");
+		
 	}
 	
 	// 로그아웃 (미완성)
 	public void loginOut() {
+		showMenu();
 		line();
 	}
 	
@@ -264,10 +269,16 @@ public class Join {
 	}
 	
 	// 로그인 후 메뉴 
-	public void choiceloginMenu(int choice) {
+		public void choiceloginMenu() {
 		line();
+		
+		do {
+		longAfterMenu();
+		int choice = sc.nextInt();
+		
 		switch(choice) {
 		case 1:
+			// 로그인 정보
 			loginInfo();
 			break;
 		case 2:
@@ -279,8 +290,10 @@ public class Join {
 			// 회원탈퇴
 			break;
 		case 4:
-			//아이디 비번 정보 바꾸기
+			// 초기 화면 이동
+			reser.showMenu();
 
-		}
+			}
+		} while(!(1 > choice && choice >= 5));
 	}
 }

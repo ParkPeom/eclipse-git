@@ -125,12 +125,10 @@ public class ReserVationMain {
 		}
 	}	
 	
-	
 	// 프로그램 종료하기
 	public void exit() {
 		System.exit(0);
 	}
-	
 	
 	// 메뉴 
 	public void showMenu() {
