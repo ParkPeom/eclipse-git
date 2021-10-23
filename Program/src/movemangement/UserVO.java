@@ -8,17 +8,17 @@ public class UserVO {
 	private String name; 	// 이름
 	private int age; 	 	// 나이
 	private String jumin;   // 주민번호
-	private String sex;     // 성별
+	private String gender;     // 성별
 	
 	// 유저 정보 생성자 초기화
-	public UserVO(String id, String pwd, String name, int age , String jumin , String sex) {
+	public UserVO(String id, String pwd, String name, int age , String jumin , String gender) {
 		super();
 		this.id = id;
 		this.pwd = pwd;
 		this.name = name;
 		this.age = age;
 		this.jumin = jumin;
-		this.sex = sex;
+		this.gender = gender;
 	}
 	
 	public UserVO(){}
@@ -93,7 +93,7 @@ public class UserVO {
 				System.out.println("다시 입력해 주시오.");
 					return false;
 			}
-		}while(!(1 <= age && age <= 100));
+		} while(!(1 <= age && age <= 100));
 	}
 	
 	public String getJumin() {
@@ -107,26 +107,29 @@ public class UserVO {
 		// 2 , 4 = 여자
 		// 모두 14자리 
 		do {
+			System.out.println(jumin.length());
+			
 			// 주민번호 유효성 검사 
-			if((jumin.charAt(8) == 1 || jumin.charAt(8) == 3) && jumin.length() >= 14 ) {
+			if((jumin.charAt(8) == 1 || jumin.charAt(8) == 3) && jumin.length() == 14 ) {
 				this.jumin = jumin;
 				return true;
-			} else if((jumin.charAt(8) == 2 || jumin.charAt(8) == 4) && jumin.length() >= 14 ) {
+			} 
+			if((jumin.charAt(8) == 2 || jumin.charAt(8) == 4) && jumin.length() == 14 ) {
 				this.jumin = jumin;
 				return true;
 			} else {
 				System.out.println("다시 입력해 주시오.");
 				return false;
 				}
-			} while((jumin.charAt(8) != 1 || jumin.charAt(8) != 3 || jumin.charAt(8) != 2 || jumin.charAt(8) != 4 ) && jumin.length() != 14);
+			} while(true);
 		}
 	
-	public String getSex() {
-		return sex;
+	public String getGender() {
+		return gender;
 	}
 
-	public void setSex(String sex) {
-		this.sex = sex;
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
 	// 아이디 비밀번호 찾기 

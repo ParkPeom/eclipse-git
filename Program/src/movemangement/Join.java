@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /*
+ 	
 	영화관 사이트 회원가입
 	<< cinema Join >>
 	1. 로그인
@@ -153,14 +154,14 @@ public class Join {
 			do {
 				System.out.println(" 주민번호를 입력해주세요 ex) 940114-1xxxxxx");
 				// 주민번호 조건 true 이면 대입 
-				jumin[i] = sc.nextLine();
+				jumin[i] = sc.next();
 				if(user.setJumin(jumin[i])) {
 					user.setJumin(jumin[i]);
 						break;
 					} else {
 						// 거짓이면 
 					System.out.println("다시 입력해주세요.");
-					continue;
+					break;
 				}
 			} while(true);
 		break;

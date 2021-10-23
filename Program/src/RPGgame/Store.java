@@ -1,5 +1,5 @@
 package RPGgame;
 
-public class Store {
-
+public class Store { // ªÛ¡° 
+	
 }
