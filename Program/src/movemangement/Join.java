@@ -1,5 +1,6 @@
 package movemangement;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /*
@@ -18,13 +19,21 @@ import java.util.Scanner;
 	가입완료!
 */
 public class Join {
+	// 나중 컬렉션프레임워크 배우면 불변 배열 -> 가변 배열
+	
 	Scanner sc;
 	int choice;
 	String[] id; 	// 아이디
 	String[] pwd; 	// 비밀번호
 	String[] name;	// 이름
-	int[] age;   // 나이
-	ReserVationMain reser; // 메인 
+	int[] age;   	// 나이
+	String[] jumin; // 주민번호
+	String[] sex;   // 성별 
+	ReserVationMain reser; // 메인
+	ArrayList arr;  // 컬렉션 프레임 사용 
+	UserVO user; // User
+	
+	
 	// 생성자 초기화
 	public Join() {
 		reser = new ReserVationMain();
@@ -33,6 +42,9 @@ public class Join {
 		pwd = new String[10];
 		name = new String[10];
 		age = new int[10];
+		jumin = new String[10];
+		sex = new String[10];
+		user = new UserVO();
 		showMenu();
 	}
 	// 라인 
@@ -74,6 +86,7 @@ public class Join {
 			}
 		}
 	}
+	
 	// 가입 페이지
 	public void join() {
 		line();
@@ -81,22 +94,85 @@ public class Join {
 			line();
 			sc.nextLine();
 			System.out.print("<회원 가입 페이지 입니다.>\n");
+			
+			line();
+			do {
+			System.out.println("아이디 다섯글자 ~ 열글자 적어주세요.");	
 			System.out.print("사용하실 아이디를 입력하시오 > ");
-			id[i] = sc.nextLine();		
-			System.out.print("사용하실 비밀번호를 입력하시오 > ");
-			pwd[i] = sc.nextLine();
-			System.out.print("이름을 입력해주세요. > ");
-			name[i] = sc.next();
-			String name = sc.nextLine();
-			System.out.print("나이를 입력해주십시오 > ");
-			age[i] = sc.nextInt();
-			break;
+			id[i] = sc.nextLine();
+				if(user.setId(id[i])) {
+					user.setId(id[i]); // 재대로 들어옴
+					break;
+				} else {
+					System.out.println("다시 입력해주시오 ");
+					continue;
+				// 재대로 들어오지 않음
+			}
+		} while(true);
+			line();
+			do {
+				System.out.println("패스워드 10글자 이상 입력해주세요.");
+				System.out.print("사용하실 비밀번호를 입력하시오 > ");
+				pwd[i] = sc.nextLine();
+				if(user.setPwd(pwd[i])) {
+					user.setPwd(pwd[i]);
+					break;
+				} else {
+					System.out.println("다시 입력해주오");
+					continue;
+				}
+			} while(true);
+			
+			do {
+				System.out.println("이름 두글자 이상 ");
+				System.out.print("이름을 입력해주세요. > ");
+				name[i] = sc.nextLine();
+				if(user.setName(name[i])) {
+					user.setName(name[i]);
+					break;
+				} else {
+					System.out.println("다시 입력해 주시오");
+					continue;
+				}
+			} while(true);
+			
+			do {
+				System.out.println("나이 1살 ~ 120살 사이 입력해 주시오 ");
+				System.out.print("나이를 입력해주십시오 > ");
+				age[i] = sc.nextInt();
+					sc.nextLine();
+				if(user.setAge(age[i])) {
+					user.setAge(age[i]);
+					break;
+				} else {
+					System.out.println("다시 입력해 주세요");
+					continue;
+				}
+			} while(true);
+			
+			do {
+				System.out.print("주민번호를 입력해주세요 ex) 940114-1xxxxxx ");
+				// 주민번호 조건 true 이면 대입 
+				
+				jumin[i] = sc.nextLine();
+				if(user.setJumin(jumin[i])) {
+					user.setJumin(jumin[i]);
+						user.setSex(sex[i]);
+						break;
+					} else {
+					System.out.println("다시 입력해주세요.");
+					continue;
+				}
+			} while(true);
+		break;
 		}
 	}
+	
 	// 프로그램 종료하기
 	public void exit() {
 		System.exit(0);
 	}
+	
 	// 초기메뉴 
 	public void showMenu() {
 		line();
@@ -138,12 +214,10 @@ public class Join {
 		System.out.println("3. 회원 탈퇴");
 		int choice = sc.nextInt();
 		choiceloginMenu(choice);
-		
 	}
 	
 	// 로그아웃
 	public void loginOut() {
-		
 		line();
 	}
 	
@@ -160,7 +234,6 @@ public class Join {
 					String pwdCheck = sc.nextLine();
 				if(pwdCheck.equals(pwd[i])) {
 					System.out.println("접속되셨습니다.");
-					
 					// 회원탈퇴 진행 
 					Confirmation(id);
 					break;
@@ -180,8 +253,15 @@ public class Join {
 		for(int i = 0; i < id.length; i++) {
 			if(id[i] != null) {
 				id[i] = null; // 회원 탈퇴 진행 완료
+				System.out.println("탈퇴 완료 하였습니다.");
 			}
 		}
+	}
+	
+	// 아이디 비번 정보 찾기
+	public void searchInfo() {
+		System.out.println("성함 입력 ");
+		System.out.println("주민번호 입력 ");
 	}
 	
 	// 로그인 후 메뉴 
@@ -199,6 +279,9 @@ public class Join {
 			joinCancel();
 			// 회원탈퇴
 			break;
+		case 4:
+			//아이디 비번 정보 찾기
+			searchInfo();
 		}
 	}
 }

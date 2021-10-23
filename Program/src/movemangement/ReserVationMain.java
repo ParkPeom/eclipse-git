@@ -17,7 +17,10 @@ import java.util.Scanner;
 	4. 예매취소하기
 	
 */
-public class ReserVationMain {
+
+// 메인 실행 클래스 
+public class ReserVationMain { 
+	 
 	static ReserVationMain reser = new ReserVationMain(); // 메인
 	static String[][] seat;	// 좌석
 	static int[][] reservedNumber; // 예매번호
@@ -49,14 +52,17 @@ public class ReserVationMain {
 	
 	// 1. 좌석 보기
 	public String[][] showSeat(String[][] seat) {
+		line();
 		for(int i = 0; i < seat.length; i++) {
 			for(int j = 0; j < seat[i].length; j++) {
 				System.out.print(seat[i][j]+" ");
 			}
 			System.out.println();
 		}
+		line();
 		return seat;
 	}
+	
 	// 2. 좌석 예약하기
 	public String[][] seatReserVation(String[][] seat) {
 		System.out.print("좌석 번호를 선택해주세요. 예) 1-1> ");
@@ -83,28 +89,36 @@ public class ReserVationMain {
 		}
 		return seat;
 	}
+	
 	// 3. 예매 내역 조회하기
 	public void reservedConfirm(String[][] seat) {
-		System.out.print("예매권 번호를 입력해주세요 > ");
+		line();
+		System.out.print(" ▼ 예매권 번호를 입력해주세요 ▼ ");
+		line();
 		int number = sc.nextInt();
 		for(int i = 0; i < reservedNumber.length; i++) {
 			for(int j = 0; j < reservedNumber[i].length; j++) {
 				if(number == reservedNumber[i][j]) {
+					line();
 					System.out.println(String.format("조회된 예매의 좌석은 [%s-%s] 입니다", i , j));
+					line();
 				} 
 			}
 		}
 	}
+	
 	// 4. 예매 취소하기
 	public void cancelSeat(String[][] seat) {
-		System.out.print("예매권 번호를 입력해주세요 > ");
+		System.out.println("▼ 예매권 번호를 입력해주세요 ▼ ");
 		int number = sc.nextInt();
 		for(int i = 0; i < reservedNumber.length; i++) {
 			for(int j = 0; j < reservedNumber[i].length; j++) {
 				if(number == reservedNumber[i][j]) {
 					seat[i][j] = i+"-"+j;
 					reservedNumber[i][j] = 0;
+					line();
 					System.out.println("예매가 취소되었습니다.");
+					line();
 					break;
 				}
 			}
@@ -117,10 +131,10 @@ public class ReserVationMain {
 		do {
 			System.out.println("<< ITWill CineMa >>");
 			System.out.println("메뉴를 선택해주세요.");
-			System.out.println("1. 좌석 보기");
-			System.out.println("2. 영화 좌석 예약하기");
-			System.out.println("3. 예매 내역 조회하기");
-			System.out.println("4. 예매 취소하기");
+			System.out.println("1. 영화관 좌석 보기");
+			System.out.println("2. 영화 좌석 예약");
+			System.out.println("3. 예매 내역 조회");
+			System.out.println("4. 예매 취소 ");
 			System.out.println("5. 회원 가입 페이지로 이동하기 ");
 			Scanner sc = new Scanner(System.in);
 			String choice = sc.nextLine();
@@ -149,6 +163,5 @@ public class ReserVationMain {
 	public static void main(String[] args) {		
 		reser.setInfo(); // 좌석초기화
 		reser.showMenu(); // 메뉴보여주기 	
-		
 	}
 }
