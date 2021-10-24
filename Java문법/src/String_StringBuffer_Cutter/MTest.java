@@ -128,5 +128,13 @@ public class MTest {
 		System.out.println(ss);
 		System.out.println(ss.hashCode());
 		
+		ss += "가";
+		System.out.println(ss.hashCode());
+		
+		System.out.println(ss);
+		
+		ss = ss.replace("안녕하세요가", "하이!");
+		System.out.println(ss);
+		
 	}
 }
