@@ -108,17 +108,17 @@ public class UserVO {
 		// 모두 14자리 
 		do {
 			// 주민번호 유효성 검사 
-			if((jumin.charAt(8) == 1 || jumin.charAt(8) == 3) && jumin.length() == 14 ) {
+			if((jumin.charAt(8) == '1' || jumin.charAt(8) == '3') && jumin.length() == 14 ) {
 				this.jumin = jumin;
 				return true;
 			} 
-			if((jumin.charAt(8) == 2 || jumin.charAt(8) == 4) && jumin.length() == 14 ) {
+			if((jumin.charAt(8) == '2' || jumin.charAt(8) == '4') && jumin.length() == 14 ) {
 				this.jumin = jumin;
 				return true;
 			} else {
 				return false;
 				}
-			} while(!(jumin.charAt(8) == 2 || jumin.charAt(8) == 4) && jumin.length() == 14);
+			} while(!(jumin.charAt(8) == '2' || jumin.charAt(8) == '4') && jumin.length() == 14);
 		}
 	
 	public String getGender() {
