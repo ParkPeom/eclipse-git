@@ -43,6 +43,17 @@ public class Method {
 		}
 		return tot;
 	}
+	
+	// 매개변수 생략 기호(...)를 사용한 매개변수를 선언한 경우 값을 0개 이상 전달받아 배열형식으로 사용이 가능
+	// 처리할때는 같은 데이터타입이므로 배열형식으로 처리할수 있다.
+	int sumThree(int...num) {
+		int tot = 0;
+		for(int temp : num) {
+			tot += temp;
+		}
+		return tot;
+	}
+	
 	public static void main(String[] args) {
 		Method method = new Method();
 		boolean result = new Method().isOddEven(10);
@@ -72,5 +83,9 @@ public class Method {
 		System.out.println("합계는 : " + method.sumTwo(numarray));
 		System.out.println("합계는 : " + method.sumTwo(new int[] {10,20,30}));
 		
+		System.out.println("합계 = " + method.sumThree(numarray)); // 값을 전달하지 않아도 에러 X
+		System.out.println("합계 = " + method.sumThree(10,20,30)); 
+		System.out.println("합계 = " + method.sumThree(10)); 
+		System.out.println("합계 = " + method.sumThree(10,20,30,40,50)); 
 	}
 }
