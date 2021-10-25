@@ -12,13 +12,20 @@ import java.util.Scanner;
 */
 public class gugudanMain {
 	Scanner sc;
+
 	public gugudanMain() {
 		sc = new Scanner(System.in);
+		showMenu();
 	}
 	
 	public void showMenu() {
 		System.out.println("게임을 시작하시겠습니까?, yes/no");
-		Quiz();
+		String answer = sc.nextLine();
+		if(answer.equals("yes")) {
+			Quiz();
+		} else if(answer.equals("no")) {
+			System.exit(0);
+		}
 	}
 
 	public void Quiz() {
@@ -28,23 +35,27 @@ public class gugudanMain {
 		int score = 0; 	 // 점수
 		int correct = 0; // 정답
 		String moonje = ""; // 문제
-	
-		// 랜덤 문제 생성 
+
 		
-		while(true) {
+	// 랜덤 문제 생성 
+	exit : while(true) {
 			dan = (int)(Math.random()*9)+2; 
 			su =  (int)(Math.random()*9)+1; 
 			for(int i = 2; i <= 9; i++) {
 			 for(int j = 1; j <= 9; j++) {
 				 if(dan == i) 
 					 if(su == j) {
+						 moonje = i + " X " + j;
 						 correct = i * j;
-						 moonje = i + "*" + j;
+						 break;
 	     			 }
 			 	}
 			}
-		// 문제 내면 맞추는 행위 	
-		
+			if(score == 100) {
+				break exit;
+			}
+
+	// 문제 내면 맞추는 행위 	
 			System.out.print(moonje + " > ");
 			answer = sc.nextInt();
 			if(answer == correct) {
@@ -60,6 +71,6 @@ public class gugudanMain {
 		}
 	}	
 	public static void main(String[] args) {
-		new gugudanMain();
+		new gugudanMain();		
 	}
 }
