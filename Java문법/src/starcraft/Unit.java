@@ -8,6 +8,8 @@ public abstract class Unit {
 	int y;
 	String str;
 	
+	
+	// 추상메서드 선언(구현부가 없다)
 	// 추상 메서드 - move
 	public abstract void move(int x, int y);
 	
