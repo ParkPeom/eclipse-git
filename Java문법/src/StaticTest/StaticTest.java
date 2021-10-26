@@ -1,3 +1,4 @@
+package StaticTest;
 
 public class StaticTest {
 	
@@ -28,11 +29,11 @@ public class StaticTest {
 		
 	}
 	StaticTest(int num1) {
-		this(3,5);
+
 	}
-	StaticTest(int num1,int num2){
-		num2 = 5;
-		num3 = num1 + num2;
+	StaticTest(int num2,int num3){
+		this(5);
+		int sum = num1 + num2 + num3;
 	}
 	
 	public static void main(String[] args) {	
