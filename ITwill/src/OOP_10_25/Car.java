@@ -15,7 +15,7 @@ public class Car {
 	//필드(Field) : 표현 대상에 대한 속성 구현 - 속성값 저장
 	// => 클래스에 선언된 모든 메서드에서 필드에 접근하여 사용이 가능하다 
 	
-	// 은닉화 처리 
+	// 은닉화(잘못된정보가 들어가지 않게) 처리 
 	// 필드 
 	private String aliasName;// 이름(별칭) - 식별자 
 	private boolean engineStatus;// 엔진상태(시동유무) - false : Off , true : On
