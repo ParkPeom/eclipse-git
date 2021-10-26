@@ -21,8 +21,5 @@ public class 다형성이해 {
 					// 동물은 사람이다 x 
 //		Human hu = new Animal12();
 		
-		
-		
-		
 	}
 }
