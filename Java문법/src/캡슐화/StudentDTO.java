@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class StudentDTO {
 	
-	
 	public static void main(String[] args) {
 		StudentVO stu1 = new StudentVO("±èÃ¶Áß","101102","³²ÀÚ");
 		
@@ -20,12 +19,9 @@ public class StudentDTO {
 		stu1 = new StudentVO("±èÃ¶Á¾","136402","³²ÀÚ");
 		arr.add(stu1);
 		
-		
 		for(StudentVO s : arr) {
 			System.out.println(s +"");
 		}
-		
-		
 		
 	}
 }

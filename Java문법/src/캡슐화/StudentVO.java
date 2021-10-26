@@ -41,6 +41,6 @@ public class StudentVO {
 
 	@Override
 	public String toString() {
-		return "StudentVO [name=" + name + ", studNo=" + studNo + ", gender=" + gender + "]";
+		return " name=" + name + ", studNo=" + studNo + ", gender=" + gender ;
 	}
 }
