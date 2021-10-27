@@ -25,7 +25,7 @@ public class Student {
 	//생성자(Constructor) : 인스턴스를 생성하는 특별한 메소드 
 	// => 인스턴스 필드에 기본값이 아닌 초기값을 저장하기 위해 선언
 	public Student() {
-		// TODO Auto-generated constructor stub
+
 	}
 
 	public Student(int num, String name, int kor, int eng) {
