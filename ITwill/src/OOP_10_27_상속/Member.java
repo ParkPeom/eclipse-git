@@ -9,6 +9,7 @@ public class Member {
 	public Member() {
 
 	}
+
 	public Member(String id, String name) {
 		super();
 		this.id = id;
@@ -34,6 +35,5 @@ public class Member {
 	public void display() {
 		System.out.println("아이디 = " + id);
 		System.out.println("이름 = " + name);
-		
 	}
 }
