@@ -17,7 +17,6 @@ public class SingletonApp {
 		// => 인스턴스 생성 후 메서드를 하나만 호출할 경우 사용
 		new Singleton().display();
 		*/
-	
 		// new 연산자로 생성자를 호출하여 인스턴스를 생성하면 서로 다른 값이 저장된 인스턴스다 
 		// => 일반적인 클래스는 인스턴스를 여러개 생성할수있다.
 		// => 똑같은걸 계속 생성하는 낭비다..
@@ -33,7 +32,6 @@ public class SingletonApp {
 		*/
 		
 		//<------------------불필요한 참조변수가 생성되는걸 막고싶으면 ? ---------------
-		
 		// 싱글톤패턴을 사용해보자 > 인스턴스를 반환하는 정적메서드를 호출하여 인스턴스를 반환받아 저장  
 		// => 클래스가 메모리에 저장된 후 미리 생성된 인스턴스 반환 - 동일 인스턴스 반환 
 		
@@ -46,6 +44,11 @@ public class SingletonApp {
 		singleton1.display();
 		singleton2.display();
 		System.out.println("===========================");
+		
+		if(singleton1 == singleton2) {
+			System.out.println(true);
+		}
+		
 		
 		// 싱글톤 클래스는 인스턴스를 반환받아 직접 메서드를 호출하는것을 권장한다. 
 		singleton1.getInstance().display();

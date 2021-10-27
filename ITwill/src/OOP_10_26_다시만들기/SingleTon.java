@@ -2,22 +2,20 @@ package OOP_10_26_다시만들기;
 
 public class SingleTon {
 
-	private static SingleTon love;
+	private static SingleTon _instance;
 	
 	private SingleTon() {
-
+		
 	}
 	
+	// 프로토타입 클래스 (메모리를 절약한다)
 	static {
-		love = new SingleTon();
+		_instance = new SingleTon();
 	}
 	
-	public static SingleTon getInstance() {
-
-		return love;
+	public SingleTon getInstance() {
+		return _instance; // this 
 	}
 	
-	public void display() {
-		System.out.println("Singleton 클래스의 display() 메서드 호출");
-	}
 }
+
