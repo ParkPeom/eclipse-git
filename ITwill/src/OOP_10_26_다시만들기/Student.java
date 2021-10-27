@@ -2,14 +2,16 @@ package OOP_10_26_다시만들기;
 
 public class Student {
 	
-	private int num;
+	private int num; 
 	private String name;
 	private int kor,eng,tot;
 	
 	
 	private static int total;
 
-	public Student() {}
+	public Student() {
+		this(1000,"박범",95,69); // 다른생성자 호출
+	}
 
 	public Student(int num, String name, int kor, int eng) {
 		super();
