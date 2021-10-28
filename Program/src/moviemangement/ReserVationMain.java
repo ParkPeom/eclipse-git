@@ -37,6 +37,7 @@ public class ReserVationMain {
 	}
 	
 	// 프로그램 시작 시 좌석 초기화
+	
 	public void setInfo() {
 		for(int i = 0; i < seat.length; i++) {
 			for(int j = 0; j < seat[i].length; j++) {
@@ -126,12 +127,12 @@ public class ReserVationMain {
 	}	
 	
 	// 프로그램 종료하기
-	public void exit() {
+	public static void exit() {
 		System.exit(0);
 	}
 	
 	// 메뉴 
-	public void showMenu() {
+	public static void showMenu() {
 		int menu = 0;
 		do {
 			System.out.println("<< ITWill CineMa >>");

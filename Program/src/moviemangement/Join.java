@@ -30,13 +30,11 @@ public class Join {
 	int[] age;   	// 나이
 	String[] jumin; // 주민번호
 	String[] sex;   // 성별 
-	ReserVationMain reser; // 메인
 	ArrayList arr;  // 컬렉션 프레임 사용 
 	UserVO user; // User
 	
 	// 생성자 초기화
 	public Join() {
-		reser = new ReserVationMain();
 		sc = new Scanner(System.in);
 		id = new String[10];
 		pwd = new String[10];
@@ -200,7 +198,7 @@ public class Join {
 			break;
 		case 3:
 			// 되돌아가기
-			reser.showMenu(); 
+			ReserVationMain.showMenu();
 			break;
 		case 4:
 			// 회원 찾기
@@ -291,8 +289,7 @@ public class Join {
 			break;
 		case 4:
 			// 초기 화면 이동
-			reser.showMenu();
-
+			ReserVationMain.showMenu();
 			}
 		} while(!(1 > choice && choice >= 5));
 	}
