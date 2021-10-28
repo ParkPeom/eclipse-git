@@ -32,6 +32,8 @@ public class AcademyApp {
 		// => 배열의 요소에는 부모 인스턴스가 저장되어 참조
 		// => 객체 형변환을 이용하면 자식 인스턴스 참조 가능 
 		
+		// ★ 부모의 참조변수를 만들면 자식의 인스턴스를 저장 가능 
+		// 부모는 형변환을 하면 모든자식을 참조 할수있다. 
 		persons[0] = new AcademyStudent("1000", "박범", "국어");
 		persons[1] = new AcademyInstructor("2000","한미녀","웹 디자인 과정");
 		persons[2] = new AcademyStaff("3000","김군","영업관리팀");
@@ -44,21 +46,24 @@ public class AcademyApp {
 			// => 상속 관계가 아닌 클래스로 명시적 객체 형변환을 할 경우 ClassCastException 발생
 			// => 부모 참조변수에 저장된 부모 인스턴스로 상속관계의 자식 클래스를 확인하여 형변환
 			// instanceof : 클래스의 상속관계를 구분하기 위한 연산자 
-			// 형식 ) 		부모참조변수 instanceof 자식클래스 
+			// 형식 ) 부모참조변수 instanceof 자식클래스 
 			// => 참조변수로 참조 가능한 자식 클래스인 경우 true를 제공한다. 
+			// => 자식 클래스가 여러 개인 경우 명시적 객체 형변환을 하기 전에 사용 : ClassCastException 예방한다.
 			if(person instanceof AcademyStudent) {
-				System.out.print(person.getName());
-				System.out.print(person.getNum());
-				System.out.println(((AcademyStudent) person).getCourse());
+				// 명시적 객체 형변환을 통해 자식을 명확히 구분하고 명시적 형변환을 해줘야한다.
+				System.out.println(((AcademyStudent) person).getCourse()+"학생 정보");
 			} else if(person instanceof AcademyInstructor) {
-				System.out.print(person.getName());
-				System.out.print(person.getNum());
-				System.out.println(((AcademyInstructor) person).getSubject());
+				System.out.println(((AcademyInstructor) person).getSubject()+"강사 정보 ");
 			} else if(person instanceof AcademyStaff) {
-				System.out.print(person.getName());
-				System.out.print(person.getNum());
-				System.out.println(((AcademyStaff) person).getDepart());
+				System.out.println(((AcademyStaff) person).getDepart() +"직원 정보");
 			}
+			// 오버라이드 선언된 메서드는 묵시적 객체 형변환 되어 부모 인스턴스의 메서드 대신
+			// 자식 인스턴스의 메서드 호출 
+			// 자동형변환 되어 자식 인스턴스의 메서드 호출
+			// => 메서드 오버라이드에 의한 다형성 - 참조변수가 참조 가능한 클래스로 자동
+			// 형변환되어 자식 인스턴스의 메서드 선택 호출 
+			person.display(); // 오버라이딩된 자식 인스턴스가 호출됨 
+			System.out.println("=================================");
 		}
 	}
 }
