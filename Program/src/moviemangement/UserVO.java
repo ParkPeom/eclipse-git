@@ -125,9 +125,18 @@ public class UserVO {
 		return gender;
 	}
 
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
+	// 성별 설정 
+	public boolean setGender(String jumin) {
+
+			// 성별 설정
+			if((jumin.charAt(8) == '1' || jumin.charAt(8) == '3')) {
+					return true;
+			} 
+			if((jumin.charAt(8) == '2' || jumin.charAt(8) == '4')) {
+					return false;
+			}
+			return false;
+		}
 
 	// 아이디 비밀번호 찾기 
 	@Override

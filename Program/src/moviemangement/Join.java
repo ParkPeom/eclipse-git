@@ -29,20 +29,22 @@ public class Join {
 	String[] name;	// 이름
 	int[] age;   	// 나이
 	String[] jumin; // 주민번호
-	String[] sex;   // 성별 
+	String[] gender;   // 성별 
 	ArrayList arr;  // 컬렉션 프레임 사용 
 	UserVO user; // User
 	
 	// 생성자 초기화
 	public Join() {
+		
 		sc = new Scanner(System.in);
 		id = new String[10];
 		pwd = new String[10];
 		name = new String[10];
 		age = new int[10];
 		jumin = new String[10];
-		sex = new String[10];
+		gender = new String[10];
 		user = new UserVO();
+		
 		showMenu();
 	}
 	// 라인 
@@ -58,7 +60,8 @@ public class Join {
 					    + " 비밀번호 : " + pwd[i] 
 						+ " 이름 : "+ name[i] 
 						+ " 나이 : "+ age[i]
-						+ " 주민번호 :"+ jumin[i]);
+						+ " 주민번호 :"+ jumin[i]
+						+ " 성별 :" + gender[i]);
 				break;
 			}
 		}
@@ -159,6 +162,11 @@ public class Join {
 				jumin[i] = sc.next();
 				if(user.setJumin(jumin[i])) {
 					user.setJumin(jumin[i]);
+						if(user.setGender(jumin[i])) {
+							gender[i] = "남자";
+						} else {
+							gender[i] = "여자";
+						}
 						break;
 					} else {
 						// 거짓이면 

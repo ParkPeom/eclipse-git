@@ -27,6 +27,8 @@ public class ReserVationMain {
 	Scanner sc; // 입력
 	List<UserVO> user; // 유저정보 
 	
+	static Join j; 
+	
 	
 	// 생성자 초기화 싱글톤 
 	ReserVationMain() {
