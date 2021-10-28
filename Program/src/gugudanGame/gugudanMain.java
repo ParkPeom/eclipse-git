@@ -27,7 +27,6 @@ public class gugudanMain {
 			System.exit(0);
 		}
 	}
-
 	public void Quiz() {
 		int dan = 2; 
 		int su = 1;
@@ -41,7 +40,7 @@ public class gugudanMain {
 	exit : while(true) {
 			dan = (int)(Math.random()*9)+2; 
 			su =  (int)(Math.random()*9)+1; 
-			for(int i = 2; i <= 9; i++) {
+		  for(int i = 2; i <= 9; i++) {
 			 for(int j = 1; j <= 9; j++) {
 				 if(dan == i) 
 					 if(su == j) {

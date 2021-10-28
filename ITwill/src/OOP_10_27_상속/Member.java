@@ -5,9 +5,14 @@ public class Member {
 	
 	private String id;
 	private String name;
+	private static Member Instance;
 	
 	public Member() {
-
+		
+	}
+	
+	static {
+		Instance =  new Member();
 	}
 
 	public Member(String id, String name) {
@@ -32,6 +37,15 @@ public class Member {
 		this.name = name;
 	}
 	
+	public static Member getInstance() {
+		return Instance;
+	}
+	
+	
+	public static void setInstance(Member instance) {
+		Instance = instance;
+	}
+
 	public void display() {
 		System.out.println("아이디 = " + id);
 		System.out.println("이름 = " + name);

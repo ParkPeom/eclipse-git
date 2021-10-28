@@ -50,7 +50,6 @@ public class MemberEvent extends Member {
 		this.email = email;
 	}
 	*/
-	
 	// [Alt] + [Shift] + [S] >> 팝업 메뉴 [0] >> 부모 클래스의 생성자를 선택 >> 필드 선택 >> Generate
 	// 부모 클래스의 매개변수가 있는 생성자를 호출 - 부모 인스턴스 필드에 초기값 부여 
 	public MemberEvent(String id, String name, String email) {
@@ -100,7 +99,6 @@ public class MemberEvent extends Member {
 		System.out.println("아이디 = " + getId());
 		System.out.println("이름 = " + getName());
 //		display(); 메서드가 자기 자기 호출하면 무한루프에 걸림 -> 재귀호출은 return를 같이써야됨
-		
 		super.display(); // 부모클래스에 있는 display 호출 
 		System.out.println("이메일 = " + email);
 	}
@@ -121,7 +119,4 @@ public class MemberEvent extends Member {
 		super.display(); // 부모의 메서드 호출 
 		System.out.println("이메일 = " + email);
 	}	
-	
-	
-	
 }

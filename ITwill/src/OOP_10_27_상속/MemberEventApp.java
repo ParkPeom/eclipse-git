@@ -22,6 +22,5 @@ public class MemberEventApp {
 		member2.display();
 		System.out.println("================================");
 		
-		
 	}
 }

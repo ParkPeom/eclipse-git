@@ -82,5 +82,13 @@ public class MemberCastApp {
 		
 		// 내일 자식을 구분하는 instanceof , object 클래스 를 볼것임
 		// final , abstract 
+		
+		MemberEvent member5 = new MemberEvent();
+		
+		if(member5 instanceof Member) {
+			((Member)member5).display();
+		} else if(member5 instanceof MemberEvent) {
+			 member5.display();
+		}
 	}
 }
