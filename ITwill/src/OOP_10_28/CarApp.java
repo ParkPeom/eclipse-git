@@ -1,7 +1,7 @@
 package OOP_10_28;
 
 public class CarApp {
-	
+				// JVM이 public class CarApp 읽어들어서 static 메인 메서드를 호출 
 	public static void main(String[] args) {
 		
 		Car car = new Car("홍길동","싼타페");
