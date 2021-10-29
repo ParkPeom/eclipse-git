@@ -36,7 +36,7 @@ public class ReserVationMain {
 		reservedNumber = new int[4][4];
 		sc = new Scanner(System.in);
 		user = new ArrayList<UserVO>();
-	}
+	 }
 	
 	// 프로그램 시작 시 좌석 초기화
 	
